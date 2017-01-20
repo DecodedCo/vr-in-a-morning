@@ -24,7 +24,9 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
                 camera
                 universal-controls
                 kinematic-body
-                position="0 1.8 0">
+                position="0 1.8 0"
+                >
+                <a-cursor></a-cursor>
       </a-entity>
 
       <a-entity id="walls"></a-entity>
@@ -44,21 +46,25 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
         // Specify our maze's characteristics, we use capitals because these are CONSTANTS
         var MAP_SIZE = 10;
         var BLOCK_SIZE = 5;
-        var NUM_TILES = 50;
+        var NUM_BLOCKS = 1;
 
         // This tells our JavaScript where in the HTML we want to add the walls
         var wallsElement = document.querySelector('#walls');
 
         var v, box;
 
+        var blockSet = [];
+
         // Use a for loop to create our random walls
-        for (var i = 0;  i < NUM_TILES; i++) {
+        for (var i = 0;  i < NUM_BLOCKS; i++) {
           // Randomly position our walls
           v = {
             x: (Math.floor(Math.random() * MAP_SIZE) - BLOCK_SIZE) * BLOCK_SIZE,
             y: BLOCK_SIZE / 2,
             z: (Math.floor(Math.random() * MAP_SIZE) - BLOCK_SIZE) * BLOCK_SIZE
           };
+
+          blockSet.push(v);
 
           // Add our tiles to the maze as a box
           box = document.createElement('a-box');
