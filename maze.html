@@ -38,7 +38,7 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
       document.querySelector('a-scene').addEventListener('render-target-loaded', function () {
         // Specify our maze's characteristics, we use capitals because these are CONSTANTS
         var MAP_SIZE = 10;
-        var TILE_SIZE = 5;
+        var BLOCK_SIZE = 5;
         var NUM_TILES = 50;
 
         // This tells our JavaScript where in the HTML we want to add the walls
@@ -50,18 +50,18 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
         for (var i = 0;  i < NUM_TILES; i++) {
           // Randomly position our walls
           v = {
-            x: (Math.floor(Math.random() * MAP_SIZE) - TILE_SIZE) * TILE_SIZE,
-            y: TILE_SIZE / 2,
-            z: (Math.floor(Math.random() * MAP_SIZE) - TILE_SIZE) * TILE_SIZE
+            x: (Math.floor(Math.random() * MAP_SIZE) - BLOCK_SIZE) * BLOCK_SIZE,
+            y: BLOCK_SIZE / 2,
+            z: (Math.floor(Math.random() * MAP_SIZE) - BLOCK_SIZE) * BLOCK_SIZE
           };
 
           // Add our tiles to the maze as a box
           box = document.createElement('a-box');
           wallsElement.appendChild(box);
           box.setAttribute('color', '#39BB82');
-          box.setAttribute('width', TILE_SIZE);
-          box.setAttribute('height', TILE_SIZE);
-          box.setAttribute('depth', TILE_SIZE);
+          box.setAttribute('width', BLOCK_SIZE);
+          box.setAttribute('height', BLOCK_SIZE);
+          box.setAttribute('depth', BLOCK_SIZE);
           box.setAttribute('position', v.x + ' ' + v.y + ' ' + v.z);
           box.setAttribute('static-body', '');
         }
