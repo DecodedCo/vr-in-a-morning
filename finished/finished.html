@@ -53,8 +53,6 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
 
         var v, box;
 
-        var blockSet = [];
-
         // Use a for loop to create our random walls
         for (var i = 0;  i < NUM_BLOCKS; i++) {
           // Randomly position our walls
@@ -63,8 +61,6 @@ kinematic-body to give the player "physics" and ensure it cannot pass through wa
             y: BLOCK_SIZE / 2,
             z: (Math.floor(Math.random() * MAP_SIZE) - BLOCK_SIZE) * BLOCK_SIZE
           };
-
-          blockSet.push(v);
 
           // Add our tiles to the maze as a box
           box = document.createElement('a-box');
